@@ -8,23 +8,33 @@
 
 Bonus: deployment; UI styling; intuitive navigation; searching for preexisting books; user to user interaction.
 
-User
+## User
 
 - Name
 - email
 - password
 - has_many books
 
-Book
+## Book
 
 - Title
 - Summary
-- Author
-- Genre
 - belong_to user
+- belongs_to author
+- belongs_to genre
 - has_many notes
 
-Note
+## Author
+
+- Name
+- has_many books
+
+## Genre
+
+- Name
+- has_many books
+
+## Note
 
 - Date
 - Content
