@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'notes/create'
+      get 'notes/update'
+      get 'notes/delete'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'genres/create'
       get 'genres/update'
       get 'genres/delete'
