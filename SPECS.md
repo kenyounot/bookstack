@@ -24,16 +24,6 @@ Bonus: deployment; UI styling; intuitive navigation; searching for preexisting b
 - belongs_to genre
 - has_many notes
 
-## Author
-
-- Name
-- has_many books
-
-## Genre
-
-- Name
-- has_many books
-
 ## Note
 
 - Date
