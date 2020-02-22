@@ -19,7 +19,14 @@ class Api::V1::NotesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @note = Note.find_by(id: params[:id])
+
+    if @note.destroy
+      render :destroy
+    else
+      render json: { error: @note.errors.full_messages }, :status => 422
+    end
   end
 
   private
