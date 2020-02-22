@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      get 'authors/create'
+      get 'authors/update'
+      get 'authors/delete'
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       get 'books/index'
       get 'books/create'
       get 'books/update'
