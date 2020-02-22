@@ -1,6 +1,8 @@
 class Api::V1::BooksController < ApplicationController
   def index
-    @books = current_user.Books.a
+    @books = current_user.books
+
+    render :index
   end
 
   def create
@@ -15,6 +17,6 @@ class Api::V1::BooksController < ApplicationController
   private
 
   def books_params
-    params.require(:book).permit(:title, :summary, :user_id, :author_id, :genre_id, :note_id)
+    params.require(:book).permit(:title, :summary, :author, :genre, :note_id)
   end
 end

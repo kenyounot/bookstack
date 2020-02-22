@@ -19,9 +19,8 @@ Bonus: deployment; UI styling; intuitive navigation; searching for preexisting b
 
 - Title
 - Summary
-- belong_to user
-- belongs_to author
-- belongs_to genre
+- Author
+- Genre
 - has_many notes
 
 ## Note
