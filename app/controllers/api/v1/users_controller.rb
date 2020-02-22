@@ -2,18 +2,14 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authenticate_request, :except => [:profile]
 
   def create
-    user = User.new(user_params)
+    @user = User.new(user_params)
 
-    if user.save
-      command = AuthenticateUser.call(user_params[:email], user_params[:password])
-      render json: {
-        user: {
-          name: user.name,
-          email: user.email,
-          id: user.id,
-        },
-        jwt: command.result,
-      }
+    if @user.save
+      @command = AuthenticateUser.call(user_params[:email], user_params[:password])
+
+      render :show
+    else
+      render json: { error: @user.errors.full_messages }, :status => 422
     end
   end
 
