@@ -1,2 +1,2 @@
 api: rails s
-web: cd frontend && npm start
+web: cd client && npm start
