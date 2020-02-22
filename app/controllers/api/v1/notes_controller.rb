@@ -10,6 +10,13 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def update
+    @note = Note.find_by(id: params[:id])
+
+    if @note.update!(note_params)
+      render :show
+    else
+      render json: { error: @note.errors.full_messages }, :status => 422
+    end
   end
 
   def delete
