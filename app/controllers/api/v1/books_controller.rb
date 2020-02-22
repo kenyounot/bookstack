@@ -21,6 +21,13 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find_by(id: params[:id])
+
+    if @book.update!(book_params.except(:note_content))
+      render :show
+    else
+      render json: { error: @book.errors.full_messages }, :status => 422
+    end
   end
 
   def destroy
