@@ -6,6 +6,18 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def create
+    @book = current_user.books.build(book_params.except(:note_content))
+
+    if book_params[:note_content]
+      @note = Note.new(content: book_params[:note_content])
+      @book.notes << @note
+    end
+
+    if @book.save
+      render :show
+    else
+      render json: { error: @book.errors.full_messages }, :status => 422
+    end
   end
 
   def update
@@ -16,7 +28,7 @@ class Api::V1::BooksController < ApplicationController
 
   private
 
-  def books_params
-    params.require(:book).permit(:title, :summary, :author, :genre, :note_id)
+  def book_params
+    params.require(:book).permit(:title, :summary, :author, :genre, :img_url, :note_content)
   end
 end
