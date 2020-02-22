@@ -14,33 +14,21 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def authenticate
-    command = AuthenticateUser.call(user_params[:email], user_params[:password])
+    @command = AuthenticateUser.call(user_params[:email], user_params[:password])
 
-    if command.success?
-      user = User.find_by(email: user_params[:email])
-      render json: {
-        user: {
-          name: user.name,
-          email: user.email,
-          id: user.id,
-        },
-        jwt: command.result,
-      }
+    if @command.success?
+      @user = User.find_by(email: user_params[:email])
+
+      render :show
     else
-      render json: { error: command.errors }, status: :unauthorized
+      render json: { error: @command.errors }, status: :unauthorized
     end
   end
 
   def profile
     @user = current_user
 
-    render json: {
-      user: {
-        id: @user.id,
-        name: @user.name,
-        email: @user.email,
-      },
-    }
+    render :show
   end
 
   private

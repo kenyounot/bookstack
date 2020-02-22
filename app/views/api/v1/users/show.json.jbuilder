@@ -1,2 +1,4 @@
 json.user(@user, :id, :name, :email)
-json.jwt @command.result
+if @command
+  json.jwt @command.result
+end
