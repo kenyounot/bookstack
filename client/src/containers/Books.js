@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Book from '../components/Book';
 
 export class Books extends Component {
-	handleClick = bookInfo => {
-		console.log(bookInfo.bookTitle);
-	};
+	handleClick = bookInfo => {};
 
 	renderBooks = books => {
 		return books.map((book, idx) => {
