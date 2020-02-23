@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/LoginAndSignup.css';
+import SignupForm from '../components/SignupForm';
 
 export default class Signup extends Component {
 	constructor() {
