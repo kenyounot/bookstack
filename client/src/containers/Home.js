@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../components/Search';
+import Books from './Books';
 
 export class Home extends Component {
 	constructor() {
@@ -44,6 +45,7 @@ export class Home extends Component {
 					handleChange={this.handleOnChange}
 					handleSubmit={this.handleOnSubmit}
 				/>
+				<Books books={this.state.books} />
 			</div>
 		);
 	}
