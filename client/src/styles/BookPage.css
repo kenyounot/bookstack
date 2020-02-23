@@ -1,0 +1,14 @@
+.book-page {
+	display: flex;
+	margin: 50px 50px 50px 50px;
+}
+
+.book-page-image {
+	margin-right: 10px;
+}
+
+.book-page-image img {
+	height: 75%;
+	width: 200px;
+	background-size: cover;
+}
