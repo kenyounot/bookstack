@@ -13,7 +13,7 @@ export default function NavBar() {
 
 			<div class='right-side'>
 				<div class='nav-link-wrapper'>
-					<Link>Login</Link>
+					<Link to='/login'>Login</Link>
 				</div>
 				<div class='nav-link-wrapper'>
 					<Link>Signup</Link>

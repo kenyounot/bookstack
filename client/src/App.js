@@ -7,8 +7,8 @@ import Login from './containers/Login';
 function App() {
 	return (
 		<div className='app'>
+			<NavBar />
 			<Switch>
-				<NavBar />
 				<Route exact path='/login' component={Login} />
 			</Switch>
 		</div>

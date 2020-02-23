@@ -13,8 +13,13 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<div>
-				<LoginForm />
+			<div class='login-container'>
+				<h1>Welcome back,</h1>
+				<div class='left-container'>
+					<LoginForm />
+				</div>
+
+				<div class='right-container'></div>
 			</div>
 		);
 	}
