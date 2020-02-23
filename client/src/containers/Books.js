@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import Book from '../components/Book';
 
 export class Books extends Component {
 	renderBooks = books => {
-		return vehicles.map((vehicle, idx) => {
-			return <Book />;
+		return books.map((book, idx) => {
+			return <Book key={idx} book={book.volumeInfo} />;
 		});
 	};
 
 	render() {
-		return <div></div>;
+		return <div className='books-container'>{this.renderBooks(this.props.books)}</div>;
 	}
 }
 

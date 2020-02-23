@@ -37,6 +37,12 @@ export class Home extends Component {
 		});
 	};
 
+	renderBooksIfTheyExist = () => {
+		if (this.state.books.length > 0) {
+			return <Books books={this.state.books} />;
+		}
+	};
+
 	render() {
 		return (
 			<div>
@@ -45,7 +51,7 @@ export class Home extends Component {
 					handleChange={this.handleOnChange}
 					handleSubmit={this.handleOnSubmit}
 				/>
-				<Books books={this.state.books} />
+				{this.renderBooksIfTheyExist()}
 			</div>
 		);
 	}
