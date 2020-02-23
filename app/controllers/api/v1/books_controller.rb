@@ -2,7 +2,11 @@ class Api::V1::BooksController < ApplicationController
   def index
     @books = current_user.books
 
-    render :index
+    if !@books.empty?
+      render :index
+    else
+      render json: { error: "User doesn't have any books" }, :status => 422
+    end
   end
 
   def create
@@ -29,7 +33,6 @@ class Api::V1::BooksController < ApplicationController
       render json: { error: @book.errors.full_messages }, :status => 422
     end
   end
-
 
   def destroy
     @book = Book.find_by(id: params[:id])
