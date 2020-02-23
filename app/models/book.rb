@@ -4,5 +4,4 @@ class Book < ApplicationRecord
 
   validates_uniqueness_of :title, scope: :user_id
   validates :title, :summary, :author, :genre, :img_url, presence: true
-  validates :summary, length: { maximum: 300 }
 end

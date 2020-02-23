@@ -34,11 +34,19 @@ const Book = props => {
 	const getBookInfo = () => {
 		return {
 			title: props.book.title,
-			summary: props.book.description,
+			summary: getBookSummaryOrPlaceHolder(),
 			author: getBookAuthorOrPlaceholder(),
 			genre: getBookGenreOrPlaceholder(),
 			img_url: getBookImgOrPlaceHolder()
 		};
+	};
+
+	const getBookSummaryOrPlaceHolder = () => {
+		if ('description' in props.book) {
+			return props.book.description;
+		} else {
+			return 'No summary available for this title.';
+		}
 	};
 
 	const renderBooks = () => {
@@ -54,7 +62,7 @@ const Book = props => {
 				<div className='book-info'>
 					<h4>{props.book.title}</h4>
 					<p>by {getBookAuthorOrPlaceholder()}</p>
-					<p>{props.book.description}</p>
+					<p>{getBookSummaryOrPlaceHolder()}</p>
 
 					<p className='genre'>Genre</p>
 

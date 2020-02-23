@@ -12,12 +12,14 @@ export const createBook = book => {
 		})
 			.then(res => res.json())
 			.then(data => {
+				console.log(data);
+
 				dispatch(addBook(data.book));
 			});
 	};
 };
 
-const addBook = vehInfo => ({
+const addBook = bookInfo => ({
 	type: 'CREATE_BOOK',
-	payload: vehInfo
+	payload: bookInfo
 });
