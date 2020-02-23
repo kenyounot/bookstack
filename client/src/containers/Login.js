@@ -23,19 +23,15 @@ export class Login extends Component {
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
-		console.log('submitted');
+		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
 
-		// this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
-
-		// this.setState({
-		// 	email: '',
-		// 	password: ''
-		// });
+		this.setState({
+			email: '',
+			password: ''
+		});
 	};
 
 	render() {
-		console.log(this.state);
-
 		return (
 			<div className='login-container'>
 				<div className='left-container'>
