@@ -7,7 +7,11 @@ const UserBook = props => {
 	return (
 		<div className='user-book'>
 			<div className='user-book'>
-				<img src={props.book.img} alt={props.book.title + "'s Book Cover"} />
+				<img
+					onClick={() => console.log('clicked')}
+					src={props.book.img}
+					alt={props.book.title + "'s Book Cover"}
+				/>
 			</div>
 		</div>
 	);
