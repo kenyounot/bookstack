@@ -23,7 +23,14 @@ export class Login extends Component {
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
-		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
+		console.log('submitted');
+
+		// this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
+
+		// this.setState({
+		// 	email: '',
+		// 	password: ''
+		// });
 	};
 
 	render() {
@@ -32,7 +39,11 @@ export class Login extends Component {
 		return (
 			<div className='login-container'>
 				<div className='left-container'>
-					<LoginForm userInfo={this.state} handleChange={this.handleOnChange} />
+					<LoginForm
+						handleSubmit={this.handleOnSubmit}
+						userInfo={this.state}
+						handleChange={this.handleOnChange}
+					/>
 				</div>
 
 				<div className='right-container'></div>
