@@ -31,12 +31,24 @@ const Book = props => {
 		}
 	};
 
+	const getBookInfo = () => {
+		return {
+			bookTitle: props.book.title,
+			bookSummary: props.book.description,
+			bookAuthor: getBookAuthorOrPlaceholder(),
+			bookGenre: getBookGenreOrPlaceholder(),
+			bookImgUrl: getBookImgOrPlaceHolder()
+		};
+	};
+
 	const renderBooks = () => {
 		return (
 			<>
 				<div className='book-img'>
 					<img src={getBookImgOrPlaceHolder()} alt={getImgAltText()} />
-					<button>Add To Collection</button>
+					<button onClick={() => props.handleClick(getBookInfo())} id={props.bookId}>
+						Add To Collection
+					</button>
 				</div>
 
 				<div className='book-info'>

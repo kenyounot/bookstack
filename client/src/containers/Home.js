@@ -19,6 +19,8 @@ export class Home extends Component {
 		});
 	};
 
+	handleAddToCollectionCLick = () => {};
+
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 

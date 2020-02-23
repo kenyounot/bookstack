@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import Book from '../components/Book';
 
 export class Books extends Component {
+	handleClick = bookInfo => {
+		console.log(bookInfo.bookTitle);
+	};
+
 	renderBooks = books => {
 		return books.map((book, idx) => {
-			return <Book key={idx} book={book.volumeInfo} />;
+			return (
+				<Book
+					handleClick={this.handleClick}
+					key={idx}
+					book={book.volumeInfo}
+					bookId={idx}
+				/>
+			);
 		});
 	};
 
