@@ -24,14 +24,26 @@ export class Home extends Component {
 		fetch('https://www.googleapis.com/books/v1/volumes?q=' + this.state.searchTerm)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
+				this.setState({
+					...this.state,
+					books: data.items
+				});
 			});
+
+		this.setState({
+			...this.state,
+			searchTerm: ''
+		});
 	};
 
 	render() {
 		return (
 			<div>
-				<Search handleChange={this.handleOnChange} />
+				<Search
+					searchTerm={this.state.searchTerm}
+					handleChange={this.handleOnChange}
+					handleSubmit={this.handleOnSubmit}
+				/>
 			</div>
 		);
 	}
