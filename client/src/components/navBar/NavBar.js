@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function NavBar() {
 	return (
 		<div class='nav-wrapper'>
-			<div class='right-side'>
+			<div class='left-side'>
 				<div class='brand'>
 					<div>BookStack</div>
 				</div>
