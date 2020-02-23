@@ -22,6 +22,8 @@ export class Login extends Component {
 
 	handleOnSubmit = evt => {
 		evt.preventDefault();
+
+		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
 	};
 
 	render() {
@@ -40,8 +42,7 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo)),
-	fetchVehicles: () => dispatch(fetchVehicles())
+	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo))
 });
 
 export default connect(null, mapDispatchToProps)(Login);
