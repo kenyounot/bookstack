@@ -7,6 +7,7 @@ import { fetchBooks } from './actions/fetchBooks';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
 import Home from './containers/Home';
+import Collection from './containers/Collection';
 
 class App extends Component {
 	componentDidMount() {
