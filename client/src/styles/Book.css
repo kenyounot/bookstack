@@ -1,0 +1,17 @@
+.book {
+	display: flex;
+	margin: 20px 10px 50px 10px;
+}
+
+.book-img {
+	margin-right: 10px;
+}
+
+.book-info > * {
+	margin: 5px;
+}
+
+.genre {
+	font-weight: bold;
+	text-decoration: underline;
+}
