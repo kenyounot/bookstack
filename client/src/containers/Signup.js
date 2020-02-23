@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import '../styles/LoginAndSignup.css';
-import LoginForm from '../components/LoginForm';
-import { connect } from 'react-redux';
-import { userAuthenticate } from '../actions/userAuthenticate';
 
-export class Login extends Component {
+export default class Signup extends Component {
 	constructor() {
 		super();
 
 		this.state = {
+			name: '',
 			email: '',
-			password: ''
+			password: '',
+			password_confirmation: ''
 		};
 	}
 
@@ -26,16 +25,17 @@ export class Login extends Component {
 		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
 
 		this.setState({
+			name: '',
 			email: '',
-			password: ''
+			password: '',
+			password_confirmation: ''
 		});
 	};
-
 	render() {
 		return (
 			<div className='login-container'>
 				<div className='left-container'>
-					<LoginForm
+					<SignupForm
 						handleSubmit={this.handleOnSubmit}
 						userInfo={this.state}
 						handleChange={this.handleOnChange}
@@ -47,9 +47,3 @@ export class Login extends Component {
 		);
 	}
 }
-
-const mapDispatchToProps = dispatch => ({
-	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo))
-});
-
-export default connect(null, mapDispatchToProps)(Login);
