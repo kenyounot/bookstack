@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/LoginAndSignup.css';
 import SignupForm from '../components/SignupForm';
+import { userCreate } from '../actions/userCreate';
+import { connect } from 'react-redux';
 
-export default class Signup extends Component {
+export class Signup extends Component {
 	constructor() {
 		super();
 
@@ -23,7 +25,7 @@ export default class Signup extends Component {
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
-		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
+		this.props.userCreate(this.state).then(() => this.props.history.push('/home'));
 
 		this.setState({
 			name: '',
@@ -32,6 +34,13 @@ export default class Signup extends Component {
 			password_confirmation: ''
 		});
 	};
+
+	componentDidMount = () => {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/home');
+		}
+	};
+
 	render() {
 		return (
 			<div className='login-container'>
@@ -48,3 +57,9 @@ export default class Signup extends Component {
 		);
 	}
 }
+
+const mapDispatchToProps = dispatch => ({
+	userCreate: userInfo => dispatch(userCreate(userInfo))
+});
+
+export default connect(null, mapDispatchToProps)(Signup);

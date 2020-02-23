@@ -31,6 +31,12 @@ export class Login extends Component {
 		});
 	};
 
+	componentDidMount = () => {
+		if (localStorage.getItem('token')) {
+			this.props.history.push('/home');
+		}
+	};
+
 	render() {
 		return (
 			<div className='login-container'>

@@ -1,6 +1,6 @@
-export const userAuthenticate = user => {
+export const userCreate = user => {
 	return dispatch => {
-		return fetch('/api/v1/authenticate', {
+		return fetch('/api/v1/users', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -11,10 +11,14 @@ export const userAuthenticate = user => {
 			.then(resp => resp.json())
 			.then(data => {
 				if (data.jwt) {
+					console.log('user created!');
+					console.log(data);
+
 					localStorage.setItem('token', data.jwt);
+
 					dispatch(loginUser(data.user));
 				} else {
-					console.log('User did not create.');
+					console.log('User not created!');
 				}
 			});
 	};
