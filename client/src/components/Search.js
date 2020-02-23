@@ -8,7 +8,12 @@ const Search = props => {
 			</div>
 
 			<div>
-				<input type='text' placeholder='search for a book' />
+				<input
+					onChange={props.handleChange}
+					type='text'
+					name='searchTerm'
+					placeholder='search for a book'
+				/>
 				<button type='submit'>search</button>
 			</div>
 		</div>

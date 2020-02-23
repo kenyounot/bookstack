@@ -18,10 +18,20 @@ export class Home extends Component {
 		});
 	};
 
+	handleOnSubmit = evt => {
+		evt.preventDefault();
+
+		fetch('https://www.googleapis.com/books/v1/volumes?q=' + this.state.searchTerm)
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+			});
+	};
+
 	render() {
 		return (
 			<div>
-				<Search />
+				<Search handleChange={this.handleOnChange} />
 			</div>
 		);
 	}
