@@ -8,6 +8,7 @@ import Login from './containers/Login';
 import Signup from './containers/Signup';
 import Home from './containers/Home';
 import Collection from './containers/Collection';
+import BookShow from './containers/BookShow';
 
 class App extends Component {
 	componentDidMount() {
@@ -26,6 +27,7 @@ class App extends Component {
 					<Route exact path='/signup' component={Signup} />
 					<Route exact path='/home' component={Home} />
 					<Route exact path='/collection' component={Collection} />
+					<Route exact path='/books/:bookId' component={BookShow} />
 				</Switch>
 			</div>
 		);
