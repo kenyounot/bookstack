@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Book.css';
 import placeholder from '../img/placeholder.jpeg';
-import Books from '../containers/Books';
 
 const Book = props => {
 	const getBookImgOrPlaceHolder = () => {
@@ -10,6 +9,10 @@ const Book = props => {
 		} else {
 			return placeholder;
 		}
+	};
+
+	const getImgAltText = () => {
+		return `book cover of ${props.book.title}`;
 	};
 
 	const getBookAuthorOrPlaceholder = () => {
@@ -32,7 +35,7 @@ const Book = props => {
 		return (
 			<>
 				<div className='book-img'>
-					<img src={getBookImgOrPlaceHolder()} />
+					<img src={getBookImgOrPlaceHolder()} alt={getImgAltText()} />
 					<button>Add To Collection</button>
 				</div>
 
