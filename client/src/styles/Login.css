@@ -1,0 +1,25 @@
+.login-container {
+	display: grid;
+	height: 500px;
+	width: 100%;
+	grid-template-columns: 50% 50%;
+}
+
+.left-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.right-container {
+	background-image: url(../img/photo-1532012197267-da84d127e765.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.login-input input {
+	margin-left: 5px;
+}

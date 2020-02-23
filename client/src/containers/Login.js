@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/Login.css';
 import LoginForm from '../components/LoginForm';
 
 export default class Login extends Component {
@@ -13,13 +14,12 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<div class='login-container'>
-				<h1>Welcome back,</h1>
-				<div class='left-container'>
+			<div className='login-container'>
+				<div className='left-container'>
 					<LoginForm />
 				</div>
 
-				<div class='right-container'></div>
+				<div className='right-container'></div>
 			</div>
 		);
 	}

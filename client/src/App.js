@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './components/navBar/NavBar';
 import './styles/App.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Login from './containers/Login';
 
 function App() {

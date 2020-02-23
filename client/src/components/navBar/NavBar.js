@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
 	return (
-		<div class='nav-wrapper'>
-			<div class='left-side'>
-				<div class='brand'>
+		<div className='nav-wrapper'>
+			<div className='left-side'>
+				<div className='brand'>
 					<div>BookStack</div>
 				</div>
 			</div>
 
-			<div class='right-side'>
-				<div class='nav-link-wrapper'>
+			<div className='right-side'>
+				<div className='nav-link-wrapper'>
 					<Link to='/login'>Login</Link>
 				</div>
-				<div class='nav-link-wrapper'>
-					<Link>Signup</Link>
+				<div className='nav-link-wrapper'>
+					<Link to='/signup'>Signup</Link>
 				</div>
 			</div>
 		</div>
