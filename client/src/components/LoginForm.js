@@ -9,12 +9,22 @@ const LoginForm = props => {
 			<div className='login-input'>
 				<label>
 					Email:
-					<input type='email' name='email' value={props.email} />
+					<input
+						onChange={props.handleChange}
+						type='email'
+						name='email'
+						value={props.userInfo.email}
+					/>
 				</label>
 				<br />
 				<label>
 					Password:
-					<input type='password' name='password' value={props.password} />
+					<input
+						onChange={props.handleChange}
+						type='password'
+						name='password'
+						value={props.userInfo.password}
+					/>
 				</label>
 			</div>
 		</div>

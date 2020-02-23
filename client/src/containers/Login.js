@@ -12,11 +12,19 @@ export default class Login extends Component {
 		};
 	}
 
+	handleOnChange = evt => {
+		this.setState({
+			[evt.target.name]: evt.target.value
+		});
+	};
+
 	render() {
+		console.log(this.state);
+
 		return (
 			<div className='login-container'>
 				<div className='left-container'>
-					<LoginForm />
+					<LoginForm userInfo={this.state} handleChange={this.handleOnChange} />
 				</div>
 
 				<div className='right-container'></div>
