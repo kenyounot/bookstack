@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import '../styles/Collection.css';
 import UserBook from '../components/UserBook';
+import { connect } from 'react-redux';
 
 export class Collection extends Component {
 	renderUserBooks = books => {
@@ -9,8 +11,21 @@ export class Collection extends Component {
 	};
 
 	render() {
-		return <div></div>;
+		return (
+			<div className='collection'>
+				<h1>Here is your book collection</h1>
+				<div className='book-collection'>
+					{this.renderUserBooks(this.props.userBooks)}
+				</div>
+			</div>
+		);
 	}
 }
 
-export default Collection;
+const mapStateToProps = state => {
+	return {
+		userBooks: state.bookReducer.books
+	};
+};
+
+export default connect(mapStateToProps)(Collection);
