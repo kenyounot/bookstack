@@ -6,8 +6,12 @@ import { connect } from 'react-redux';
 export class Collection extends Component {
 	renderUserBooks = books => {
 		return books.map((book, idx) => {
-			return <UserBook key={idx} book={book} />;
+			return <UserBook handleClick={this.handleBookClick} key={idx} book={book} />;
 		});
+	};
+
+	handleBookClick = bookId => {
+		this.props.history.push(`/books/${bookId}`);
 	};
 
 	render() {
