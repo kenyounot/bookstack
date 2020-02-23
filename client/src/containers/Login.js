@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/Login.css';
 import LoginForm from '../components/LoginForm';
+import { connect } from 'react-redux';
+import { userAuthenticate } from '../actions/userAuthenticate';
 
-export default class Login extends Component {
+export class Login extends Component {
 	constructor() {
 		super();
 
@@ -16,6 +18,10 @@ export default class Login extends Component {
 		this.setState({
 			[evt.target.name]: evt.target.value
 		});
+	};
+
+	handleOnSubmit = evt => {
+		evt.preventDefault();
 	};
 
 	render() {
@@ -32,3 +38,10 @@ export default class Login extends Component {
 		);
 	}
 }
+
+const mapDispatchToProps = dispatch => ({
+	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo)),
+	fetchVehicles: () => dispatch(fetchVehicles())
+});
+
+export default connect(null, mapDispatchToProps)(Login);
