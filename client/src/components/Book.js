@@ -33,11 +33,11 @@ const Book = props => {
 
 	const getBookInfo = () => {
 		return {
-			bookTitle: props.book.title,
-			bookSummary: props.book.description,
-			bookAuthor: getBookAuthorOrPlaceholder(),
-			bookGenre: getBookGenreOrPlaceholder(),
-			bookImgUrl: getBookImgOrPlaceHolder()
+			title: props.book.title,
+			summary: props.book.description,
+			author: getBookAuthorOrPlaceholder(),
+			genre: getBookGenreOrPlaceholder(),
+			img_url: getBookImgOrPlaceHolder()
 		};
 	};
 
