@@ -42,7 +42,7 @@ export class BookShow extends Component {
 					<h2>Notes</h2>
 				</div>
 
-				<Notes />
+				<Notes bookId={this.props.bookId}/>
 			</div>
 		);
 	}
@@ -52,7 +52,8 @@ const mapStateToProps = (state, ownProps) => {
 	const bookId = parseInt(ownProps.match.params.bookId, 10);
 
 	return {
-		book: state.bookReducer.books.find(book => book.id === bookId) || []
+		book: state.bookReducer.books.find(book => book.id === bookId) || [],
+		bookId: bookId
 	};
 };
 
