@@ -4,14 +4,19 @@ const BookPage = props => {
 	return (
 		<div className='book-page'>
 			<div className='book-page-image'>
-				<img src={props.book.img} alt={props.book.title + ';s Book Cover'} />
+				<img src={props.book.img_url} alt={props.book.title + 's Book Cover'} />
+				<button onClick={props.handleDelete}>Delete Book</button>
 			</div>
-			<div onBlur={props.handleBlur} onDoubleClick={props.handleEditClick}>
+			<div
+				onBlur={e => props.handleBlur(e, props.book.id)}
+				onDoubleClick={props.handleEditClick}
+			>
 				<h3 id='title'>{props.book.title}</h3>
 				<p className='non-editable'>By,</p> <p id='author'>{props.book.author}</p>
 				<p id='summary'>{props.book.summary}</p>
 				<h4 className='genre non-editable'>Genre</h4>
 				<p id='genre'>{props.book.genre}</p>
+				<hr />
 			</div>
 		</div>
 	);

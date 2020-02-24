@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateBook } from '../actions/updateBook';
 import BookPage from '../components/BookPage';
 
 export class BookShow extends Component {
-	handleBlur = evt => {
-		evt.target.contentEditable = false;
+	handleBlur = (evt, id) => {
+		evt.target.removeAttribute('contentEditable');
 
-		console.log(evt.target.id);
+		let bookId = id;
+		let bookInfo = {
+			[evt.target.id]: evt.target.textContent
+		};
+
+		this.props.updateBook(bookId, bookInfo);
 	};
 
 	handleEditClick = evt => {
@@ -15,6 +21,8 @@ export class BookShow extends Component {
 			evt.target.focus();
 		}
 	};
+
+	handleBookDelete = () => {};
 
 	render() {
 		return (
@@ -37,4 +45,10 @@ const mapStateToProps = (state, ownProps) => {
 	};
 };
 
-export default connect(mapStateToProps)(BookShow);
+const mapDispatchToProps = dispatch => {
+	return {
+		updateBook: (id, bookInfo) => dispatch(updateBook(id, bookInfo))
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookShow);

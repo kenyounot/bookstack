@@ -24,6 +24,15 @@ const bookReducer = (state = initialState, action) => {
 				books: state.books.concat(action.payload)
 			};
 
+		case 'UPDATE_BOOK':
+			return {
+				...state,
+				books: [
+					...state.books.filter(book => book.id !== action.payload.id),
+					action.payload
+				]
+			};
+
 		case 'DELETE_BOOK':
 			return {
 				...state,

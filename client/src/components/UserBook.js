@@ -9,7 +9,7 @@ const UserBook = props => {
 			<div className='user-book'>
 				<img
 					onClick={() => props.handleClick(props.book.id)}
-					src={props.book.img}
+					src={props.book.img_url}
 					alt={props.book.title + "'s Book Cover"}
 				/>
 			</div>

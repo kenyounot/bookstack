@@ -4,7 +4,7 @@ json.books @books do |book|
   json.summary book.summary
   json.author book.author
   json.genre book.genre
-  json.img book.img_url
+  json.img_url book.img_url
 
   if !book.notes.empty?
     json.notes book.notes do |note|
