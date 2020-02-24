@@ -14,7 +14,6 @@ import BookShow from './containers/BookShow';
 class App extends Component {
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
-			console.log('in the app mount');
 			this.props.fetchBooks();
 		}
 	}

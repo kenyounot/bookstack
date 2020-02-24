@@ -2,8 +2,6 @@ import React from 'react';
 import '../styles/UserBook.css';
 
 const UserBook = props => {
-	console.log(props.book.id);
-
 	return (
 		<div className='user-book'>
 			<div className='user-book'>

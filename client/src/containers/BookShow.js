@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateBook } from '../actions/updateBook';
+import { deleteBook } from '../actions/deleteBook';
 import BookPage from '../components/BookPage';
 
 export class BookShow extends Component {
@@ -23,7 +24,7 @@ export class BookShow extends Component {
 	};
 
 	handleBookDelete = bookId => {
-		console.log(bookId);
+		this.props.deleteBook(bookId).then(() => this.props.history.push('/collection'));
 	};
 
 	render() {
@@ -35,6 +36,8 @@ export class BookShow extends Component {
 					handleEditClick={this.handleEditClick}
 					book={this.props.book}
 				/>
+
+				<h1>Notes</h1>
 			</div>
 		);
 	}
@@ -50,7 +53,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		updateBook: (id, bookInfo) => dispatch(updateBook(id, bookInfo))
+		updateBook: (id, bookInfo) => dispatch(updateBook(id, bookInfo)),
+		deleteBook: bookId => dispatch(deleteBook(bookId))
 	};
 };
 

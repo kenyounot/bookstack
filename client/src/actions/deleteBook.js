@@ -1,4 +1,4 @@
-export const deleteVehicle = bookId => {
+export const deleteBook = bookId => {
 	const token = localStorage.getItem('token');
 	return dispatch => {
 		return fetch(`/api/v1/books/${bookId}`, {
@@ -11,7 +11,7 @@ export const deleteVehicle = bookId => {
 		})
 			.then(res => res.json())
 			.then(data => {
-				dispatch(dispatchDelete(data.id));
+				dispatch(dispatchDelete(data.book.id));
 			});
 	};
 };

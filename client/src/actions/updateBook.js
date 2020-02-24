@@ -14,8 +14,6 @@ export const updateBook = (bookId, book) => {
 		})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
-
 				dispatch(editBook(data.book));
 			});
 	};
