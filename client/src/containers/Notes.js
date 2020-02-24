@@ -9,7 +9,7 @@ export class Notes extends Component {
 		super(props);
 
 		this.state = {
-			post_id: props.bookId,
+			book_id: props.bookId,
 			content: ''
 		};
 	}
@@ -24,14 +24,24 @@ export class Notes extends Component {
 		evt.preventDefault();
 
 		this.props.createNote(this.state);
+
+		this.setState({
+			...this.state,
+			content: ''
+		});
 	};
 
 	render() {
 		console.log(this.state.post_id);
+		console.log(this.props.notes);
 
 		return (
 			<div className='notes-container'>
-				<NoteForm handleChange={this.handleChange} content={this.state.content} />
+				<NoteForm
+					handleSubmit={this.handleSubmit}
+					handleChange={this.handleChange}
+					content={this.state.content}
+				/>
 				<ul>
 					<li>Note 1</li>
 					<li>Note 2</li>
@@ -47,4 +57,10 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(null, mapDispatchToProps)(Notes);
+const mapStateToProps = (state, ownProps) => {
+	return {
+		notes: state.noteReducer.notes.filter(note => note.book_id === ownProps.bookId)
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notes);
