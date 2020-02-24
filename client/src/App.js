@@ -18,6 +18,8 @@ class App extends Component {
 		}
 	}
 
+	handleLogout = () => {};
+
 	render() {
 		return (
 			<div className='app'>
