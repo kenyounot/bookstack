@@ -22,12 +22,15 @@ export class BookShow extends Component {
 		}
 	};
 
-	handleBookDelete = () => {};
+	handleBookDelete = bookId => {
+		console.log(bookId);
+	};
 
 	render() {
 		return (
 			<div className='book-show'>
 				<BookPage
+					handleDelete={this.handleBookDelete}
 					handleBlur={this.handleBlur}
 					handleEditClick={this.handleEditClick}
 					book={this.props.book}
