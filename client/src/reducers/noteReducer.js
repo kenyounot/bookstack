@@ -4,7 +4,7 @@ const initialState = {
 
 const noteReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'FETCH_NOTES':
+		case 'GET_NOTES':
 			return {
 				...state,
 				notes: [...action.payload]
