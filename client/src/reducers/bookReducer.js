@@ -5,6 +5,9 @@ const initialState = {
 
 const bookReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case 'LOGOUT_USER':
+			return initialState;
+
 		case 'FETCHING_BOOKS':
 			return {
 				...state,

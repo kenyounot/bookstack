@@ -25,7 +25,7 @@ export class Signup extends Component {
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
-		this.props.userCreate(this.state).then(() => this.props.history.push('/home'));
+		this.props.userCreate(this.state).then(() => this.props.history.push('/collection'));
 
 		this.setState({
 			name: '',

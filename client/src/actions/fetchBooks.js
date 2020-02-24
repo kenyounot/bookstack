@@ -1,7 +1,6 @@
 export const fetchBooks = () => dispatch => {
 	const token = localStorage.getItem('token');
 
-	dispatch({ type: 'FETCHING_VEHICLES' });
 	fetch(`/api/v1/books`, {
 		method: 'GET',
 		headers: {
@@ -12,6 +11,9 @@ export const fetchBooks = () => dispatch => {
 	})
 		.then(res => res.json())
 		.then(data => {
+			if (data.error) {
+			}
+
 			dispatch(storeBooks(data.books));
 		});
 };

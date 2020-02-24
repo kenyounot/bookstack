@@ -21,7 +21,7 @@ export default function NavBar(props) {
 							<Link to='/search'>Add Book</Link>
 						</div>
 						<div className='nav-link-wrapper'>
-							<Link onClick={props.handleLogout} to='/'>
+							<Link onClick={props.handleLogout} to='/login'>
 								Logout
 							</Link>
 						</div>

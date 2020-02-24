@@ -38,7 +38,7 @@ export class Search extends Component {
 	};
 
 	renderBooksIfTheyExist = () => {
-		if (this.state.books.length > 0) {
+		if (this.state.books) {
 			return <Books books={this.state.books} />;
 		}
 	};

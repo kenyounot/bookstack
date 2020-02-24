@@ -2,10 +2,8 @@ class Api::V1::BooksController < ApplicationController
   def index
     @books = current_user.books
 
-    if !@books.empty?
+    if @books
       render :index
-    else
-      render json: { error: "User doesn't have any books" }, :status => 422
     end
   end
 
