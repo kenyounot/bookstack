@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Search from '../components/Search';
+import SearchForm from '../components/SearchForm';
 import Books from './Books';
 
-export class Home extends Component {
+export class Search extends Component {
 	constructor() {
 		super();
 
@@ -46,7 +46,7 @@ export class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Search
+				<SearchForm
 					searchTerm={this.state.searchTerm}
 					handleChange={this.handleOnChange}
 					handleSubmit={this.handleOnSubmit}
@@ -57,4 +57,4 @@ export class Home extends Component {
 	}
 }
 
-export default Home;
+export default Search;

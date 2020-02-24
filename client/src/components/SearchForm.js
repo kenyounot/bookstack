@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Search = props => {
+const SearchForm = props => {
 	return (
 		<div>
 			<div>
@@ -23,4 +23,4 @@ const Search = props => {
 	);
 };
 
-export default Search;
+export default SearchForm;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import NavBar from './components/navBar/NavBar';
 import './styles/App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBooks } from './actions/fetchBooks';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
-import Home from './containers/Home';
+import Search from './containers/Search';
 import Collection from './containers/Collection';
 import BookShow from './containers/BookShow';
 
@@ -25,14 +25,34 @@ class App extends Component {
 				<Switch>
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={Signup} />
-					<Route exact path='/home' component={Home} />
-					<Route exact path='/collection' component={Collection} />
-					<Route exact path='/books/:bookId' component={BookShow} />
+					<ProtectedRoute exact path='/search' component={Search} />
+					<ProtectedRoute exact path='/collection' component={Collection} />
+					<ProtectedRoute exact path='/books/:bookId' component={BookShow} />
 				</Switch>
 			</div>
 		);
 	}
 }
+
+const ProtectedRoute = ({ component: Component, ...rest }) => (
+	<Route
+		{...rest}
+		render={props =>
+			localStorage.getItem('token') ? (
+				<>
+					<Component {...props} />
+				</>
+			) : (
+				<Redirect
+					to={{
+						pathname: '/login',
+						state: { from: props.location }
+					}}
+				/>
+			)
+		}
+	/>
+);
 
 const mapDispatchToProps = dispatch => {
 	return {

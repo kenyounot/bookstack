@@ -23,7 +23,9 @@ export class Login extends Component {
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
-		this.props.userAuthenticate(this.state).then(() => this.props.history.push('/home'));
+		this.props
+			.userAuthenticate(this.state)
+			.then(() => this.props.history.push('/collection'));
 
 		this.setState({
 			email: '',
