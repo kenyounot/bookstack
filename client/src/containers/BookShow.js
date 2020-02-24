@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateBook } from '../actions/updateBook';
 import { deleteBook } from '../actions/deleteBook';
+import '../styles/BookShow.css';
 import BookPage from '../components/BookPage';
+import Notes from './Notes';
 
 export class BookShow extends Component {
 	handleBlur = (evt, id) => {
@@ -36,8 +38,11 @@ export class BookShow extends Component {
 					handleEditClick={this.handleEditClick}
 					book={this.props.book}
 				/>
+				<div className='note-heading'>
+					<h2>Notes</h2>
+				</div>
 
-				<h1>Notes</h1>
+				<Notes />
 			</div>
 		);
 	}

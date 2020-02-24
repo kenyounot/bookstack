@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/BookPage.css';
+
 const BookPage = props => {
 	return (
 		<div className='book-page'>
