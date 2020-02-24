@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Notes.css';
+import { createNote } from '../actions/createNote';
+import { connect } from 'react-redux';
 import NoteForm from '../components/NoteForm';
 
 export class Notes extends Component {
@@ -20,6 +22,8 @@ export class Notes extends Component {
 
 	handleSubmit = evt => {
 		evt.preventDefault();
+
+		this.props.createNote(this.state);
 	};
 
 	render() {
@@ -29,7 +33,7 @@ export class Notes extends Component {
 			<div className='notes-container'>
 				<NoteForm handleChange={this.handleChange} content={this.state.content} />
 				<ul>
-					<li>Note1</li>
+					<li>Note 1</li>
 					<li>Note 2</li>
 				</ul>
 			</div>
@@ -37,4 +41,10 @@ export class Notes extends Component {
 	}
 }
 
-export default Notes;
+const mapDispatchToProps = dispatch => {
+	return {
+		createNote: noteInfo => dispatch(createNote(noteInfo))
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Notes);
