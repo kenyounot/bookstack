@@ -29,6 +29,7 @@ class App extends Component {
 			<div className='app'>
 				<NavBar handleLogout={this.handleLogout} />
 				<Switch>
+					<Route exact path='/' component={Login} />
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={Signup} />
 					<ProtectedRoute exact path='/search' component={Search} />
