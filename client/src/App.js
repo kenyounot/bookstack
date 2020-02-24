@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import NavBar from './components/navBar/NavBar';
 import './styles/App.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBooks } from './actions/fetchBooks';
+import userLogout from './actions/logoutUser';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
 import Search from './containers/Search';
@@ -13,17 +14,19 @@ import BookShow from './containers/BookShow';
 class App extends Component {
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
-			// this.props.fetchProfile();
 			this.props.fetchBooks();
 		}
 	}
 
-	handleLogout = () => {};
+	handleLogout = () => {
+		this.props.logoutUser();
+		this.props.history.push('login');
+	};
 
 	render() {
 		return (
 			<div className='app'>
-				<NavBar />
+				<NavBar handleLogout={this.handleLogout} />
 				<Switch>
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={Signup} />
@@ -58,8 +61,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchBooks: () => dispatch(fetchBooks())
+		fetchBooks: () => dispatch(fetchBooks()),
+		logoutUser: () => dispatch(userLogout())
 	};
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/LoginAndSignup.css';
 import LoginForm from '../components/LoginForm';
 import { connect } from 'react-redux';
+import { fetchBooks } from '../actions/fetchBooks';
 import { userAuthenticate } from '../actions/userAuthenticate';
 
 export class Login extends Component {
@@ -25,6 +26,11 @@ export class Login extends Component {
 
 		this.props
 			.userAuthenticate(this.state)
+			.then(() => {
+				if (localStorage.getItem('token')) {
+					this.props.fetchBooks();
+				}
+			})
 			.then(() => this.props.history.push('/collection'));
 
 		this.setState({
@@ -57,7 +63,8 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo))
+	userAuthenticate: userInfo => dispatch(userAuthenticate(userInfo)),
+	fetchBooks: () => dispatch(fetchBooks())
 });
 
 export default connect(null, mapDispatchToProps)(Login);
