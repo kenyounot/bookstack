@@ -2,6 +2,10 @@
 	text-align: center;
 }
 
+.collection h1 {
+	margin: 5px;
+}
+
 .book-collection {
 	display: flex;
 	flex-wrap: wrap;
