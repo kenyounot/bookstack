@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "cd client && yarn build",
-		"install": "cd client && yarn"
+		"install": "cd client && yarn start"
 	},
 	"repository": {
 		"type": "git",
