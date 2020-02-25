@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate_request
+  before_action :authenticate_request, :except => [:fallback_index_html]
   attr_reader :current_user
 
   def fallback_index_html
