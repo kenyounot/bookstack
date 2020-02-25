@@ -3,3 +3,9 @@
 	text-decoration: none;
 	list-style-position: inside;
 }
+
+.ul-container > ul > li {
+	margin: 5px;
+	list-style-type: none;
+	border: 1px solid lightgray;
+}

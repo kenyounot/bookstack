@@ -1,7 +1,7 @@
-export const getNotes = () => dispatch => {
+export const getNotes = bookId => dispatch => {
 	const token = localStorage.getItem('token');
 
-	fetch(`/api/v1/notes`, {
+	fetch(`/api/v1/notes/${bookId}`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',

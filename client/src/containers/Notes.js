@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/Notes.css';
 import { createNote } from '../actions/createNote';
+import { getNotes } from '../actions/getNotes';
+import { deleteNote } from '../actions/deleteNote';
 import { connect } from 'react-redux';
+import Note from '../components/Note';
 import NoteForm from '../components/NoteForm';
 
 export class Notes extends Component {
@@ -20,6 +23,10 @@ export class Notes extends Component {
 		});
 	};
 
+	handleNoteDelete = noteId => {
+		this.props.deleteNote(noteId);
+	};
+
 	handleSubmit = evt => {
 		evt.preventDefault();
 
@@ -31,10 +38,18 @@ export class Notes extends Component {
 		});
 	};
 
-	render() {
-		console.log(this.state.post_id);
-		console.log(this.props.notes);
+	renderNotes = () => {
+		return this.props.notes.map((note, idx) => {
+			return <Note handleDelete={this.handleNoteDelete} key={idx} note={note} />;
+		});
+	};
 
+	componentDidMount() {
+		this.props.getNotes(this.props.bookId);
+	}
+
+	render() {
+		this.renderNotes();
 		return (
 			<div className='notes-container'>
 				<NoteForm
@@ -42,10 +57,9 @@ export class Notes extends Component {
 					handleChange={this.handleChange}
 					content={this.state.content}
 				/>
-				<ul>
-					<li>Note 1</li>
-					<li>Note 2</li>
-				</ul>
+				<div className='ul-container'>
+					<ul>{this.renderNotes()}</ul>
+				</div>
 			</div>
 		);
 	}
@@ -53,13 +67,15 @@ export class Notes extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		createNote: noteInfo => dispatch(createNote(noteInfo))
+		createNote: noteInfo => dispatch(createNote(noteInfo)),
+		getNotes: bookId => dispatch(getNotes(bookId)),
+		deleteNote: noteId => dispatch(deleteNote(noteId))
 	};
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
 	return {
-		notes: state.noteReducer.notes.filter(note => note.book_id === ownProps.bookId)
+		notes: state.noteReducer.notes
 	};
 };
 

@@ -9,6 +9,17 @@ class Api::V1::NotesController < ApplicationController
     end
   end
 
+  def index
+    @book = Book.find_by(id: params[:id])
+    @notes = @book.notes
+
+    if @notes
+      render :index
+    else
+      render json: { error: @notes.errors.full_messages }, :status => 422
+    end
+  end
+
   def update
     @note = Note.find_by(id: params[:id])
 

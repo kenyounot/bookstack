@@ -42,7 +42,7 @@ export class BookShow extends Component {
 					<h2>Notes</h2>
 				</div>
 
-				<Notes bookId={this.props.bookId}/>
+				<Notes bookId={this.props.bookId} />
 			</div>
 		);
 	}
