@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   before_action :authenticate_request
   attr_reader :current_user
 
-  def method_name
+  def fallback_index_html
     render :file => "public/index.html"
   end
 
