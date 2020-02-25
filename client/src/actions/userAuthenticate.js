@@ -1,6 +1,6 @@
 export const userAuthenticate = user => {
 	return dispatch => {
-		return fetch('http://bookstackapi.herokuapp.com/api/v1/authenticate', {
+		return fetch('https://bookstackapi.herokuapp.com/api/v1/authenticate', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
