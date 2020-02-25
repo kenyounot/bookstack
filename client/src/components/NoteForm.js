@@ -6,12 +6,14 @@ const NoteForm = props => {
 			<form onSubmit={props.handleSubmit}>
 				<input
 					onChange={props.handleChange}
-					type='text'
+					type='textarea'
 					name='content'
 					placeholder='enter note'
 					value={props.content}
 				/>
-				<button type='submit'>Create Note</button>
+				<button className='create-note-btn' type='submit'>
+					<i class='fa fa-plus' aria-hidden='true'></i>
+				</button>
 			</form>
 		</div>
 	);

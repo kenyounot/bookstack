@@ -4,7 +4,7 @@ const SearchForm = props => {
 	return (
 		<div>
 			<div>
-				<h3>Search for a book below</h3>
+				<h2>Search for a book below</h2>
 			</div>
 
 			<div>
@@ -16,7 +16,9 @@ const SearchForm = props => {
 						value={props.searchTerm}
 						placeholder='search for a book'
 					/>
-					<button type='submit'>search</button>
+					<button type='submit'>
+						<i class='fa fa-search'></i>
+					</button>
 				</form>
 			</div>
 		</div>

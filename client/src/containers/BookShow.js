@@ -32,6 +32,7 @@ export class BookShow extends Component {
 	render() {
 		return (
 			<div className='book-show'>
+				<div className='hero-image'></div>
 				<BookPage
 					handleDelete={this.handleBookDelete}
 					handleBlur={this.handleBlur}

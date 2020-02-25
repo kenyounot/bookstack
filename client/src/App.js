@@ -10,6 +10,7 @@ import Signup from './containers/Signup';
 import Search from './containers/Search';
 import Collection from './containers/Collection';
 import BookShow from './containers/BookShow';
+import FourOhFour from './components/FourOhFour';
 
 class App extends Component {
 	componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
 					<ProtectedRoute exact path='/search' component={Search} />
 					<ProtectedRoute exact path='/collection' component={Collection} />
 					<ProtectedRoute exact path='/books/:bookId' component={BookShow} />
+					<Route component={FourOhFour} />
 				</Switch>
 			</div>
 		);

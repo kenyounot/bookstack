@@ -1,0 +1,16 @@
+.four-oh-four {
+	background-image: url('../img/404.jpg');
+	margin: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	height: 500px;
+	width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+	.four-oh-four {
+		height: 300px;
+	}
+}

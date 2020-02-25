@@ -9,3 +9,13 @@
 	list-style-type: none;
 	border: 1px solid lightgray;
 }
+
+.note-delete-btn {
+	background-color: rgb(233, 43, 59);
+	width: 75px;
+	cursor: pointer;
+}
+
+.note-delete-btn:hover {
+	background-color: rgb(247, 1, 50);
+}

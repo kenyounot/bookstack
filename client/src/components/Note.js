@@ -9,7 +9,12 @@ const Note = props => {
 			>
 				<p className='non-editable'>{props.note.updated_at}</p>
 				<p id='content'>{props.note.content}</p>
-				<button onClick={() => props.handleDelete(props.note.id)}>x</button>
+				<button
+					className='note-delete-btn'
+					onClick={() => props.handleDelete(props.note.id)}
+				>
+					<i class='fa fa-trash'></i>
+				</button>
 			</li>
 		</>
 	);

@@ -1,0 +1,22 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+.search-container {
+	text-align: center;
+}
+
+.search-container button {
+	height: 30px;
+	border-radius: 20px;
+	margin-left: 5px;
+}
+
+.search-container input {
+	height: 25px;
+	width: 200px;
+	border-radius: 10px;
+}

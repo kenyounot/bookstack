@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
 import Books from './Books';
+import '../styles/Search.css';
 
 export class Search extends Component {
 	constructor() {
@@ -45,7 +46,8 @@ export class Search extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='search-container'>
+				<div className='hero-image'></div>
 				<SearchForm
 					searchTerm={this.state.searchTerm}
 					handleChange={this.handleOnChange}

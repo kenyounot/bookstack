@@ -17,6 +17,7 @@ export class Collection extends Component {
 	render() {
 		return (
 			<div className='collection'>
+				<div className='hero-image'></div>
 				<h1>Here is your book collection</h1>
 				<div className='book-collection'>
 					{this.renderUserBooks(this.props.userBooks)}
