@@ -11,9 +11,6 @@ export const userCreate = user => {
 			.then(resp => resp.json())
 			.then(data => {
 				if (data.jwt) {
-					console.log('user created!');
-					console.log(data);
-
 					localStorage.setItem('token', data.jwt);
 
 					dispatch(loginUser(data.user));
