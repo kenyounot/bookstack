@@ -10,8 +10,8 @@
 		"lib": "lib"
 	},
 	"scripts": {
-		"build": "cd client && yarn build",
-		"install": "cd client && yarn start"
+		"build": "cd client && npm build",
+		"install": "cd client && npm start"
 	},
 	"repository": {
 		"type": "git",
