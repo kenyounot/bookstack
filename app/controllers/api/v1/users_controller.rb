@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @command = AuthenticateUser.call(user_params[:email], user_params[:password])
+      @command = AuthenticateUser.call(@user.email, @user.password)
 
       render :show
     else

@@ -16,9 +16,9 @@
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.4.0",
 		"redux": "^4.0.5",
-		"redux-thunk": "^2.3.0",
-		"yarn": "^1.22.0"
+		"redux-thunk": "^2.3.0"
 	},
+	"proxy": "http://localhost:3001",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build && cp -r build/* ../public/",
