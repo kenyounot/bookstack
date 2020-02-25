@@ -6,7 +6,12 @@ const BookPage = props => {
 		<div className='book-page'>
 			<div className='book-page-image'>
 				<img src={props.book.img_url} alt={props.book.title + 's Book Cover'} />
-				<button onClick={() => props.handleDelete(props.book.id)}>Delete Book</button>
+				<button
+					className='book-delete-btn'
+					onClick={() => props.handleDelete(props.book.id)}
+				>
+					<i className='fa fa-trash'> Delete Book</i>
+				</button>
 			</div>
 			<div
 				onBlur={e => props.handleBlur(e, props.book.id)}
