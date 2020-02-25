@@ -14,7 +14,7 @@ export const userAuthenticate = user => {
 					localStorage.setItem('token', data.jwt);
 					dispatch(loginUser(data.user));
 				} else {
-					console.log('User did not create.');
+					console.log('User did not authenticate.');
 				}
 			});
 	};
