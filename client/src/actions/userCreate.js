@@ -1,6 +1,6 @@
 export const userCreate = user => {
 	return dispatch => {
-		return fetch('/api/v1/users', {
+		return fetch('https://bookstackapi.herokuapp.com/api/v1/users', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
