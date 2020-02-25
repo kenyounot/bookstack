@@ -11,18 +11,26 @@ const noteReducer = (state = initialState, action) => {
 			};
 
 		case 'UPDATE_NOTE':
+			let idx = state.notes.findIndex(note => note.id === action.payload.id);
+			console.log(idx);
 			return {
 				...state,
 				notes: [
-					...state.notes.filter(note => note.id !== action.payload.id),
-					action.payload
+					...state.notes.map(note => {
+						if (note.id === action.payload.id) {
+							return {
+								...action.payload
+							};
+						} else {
+							return note;
+						}
+					})
 				]
 			};
 
 		case 'CREATE_NOTE':
 			return {
 				...state,
-				// notes: state.notes.concat(action.payload),
 				notes: [action.payload, ...state.notes]
 			};
 

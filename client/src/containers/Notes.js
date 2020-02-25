@@ -3,6 +3,7 @@ import '../styles/Notes.css';
 import { createNote } from '../actions/createNote';
 import { getNotes } from '../actions/getNotes';
 import { deleteNote } from '../actions/deleteNote';
+import { updateNote } from '../actions/updateNote';
 import { connect } from 'react-redux';
 import Note from '../components/Note';
 import NoteForm from '../components/NoteForm';
@@ -16,6 +17,24 @@ export class Notes extends Component {
 			content: ''
 		};
 	}
+
+	handleBlur = (evt, id) => {
+		evt.target.removeAttribute('contentEditable');
+
+		let noteId = id;
+		let noteInfo = {
+			[evt.target.id]: evt.target.textContent
+		};
+
+		this.props.updateNote(noteId, noteInfo);
+	};
+
+	handleEditClick = evt => {
+		if (evt.target.tagName !== 'DIV' && !evt.target.classList.contains('non-editable')) {
+			evt.target.contentEditable = true;
+			evt.target.focus();
+		}
+	};
 
 	handleChange = evt => {
 		this.setState({
@@ -40,7 +59,15 @@ export class Notes extends Component {
 
 	renderNotes = () => {
 		return this.props.notes.map((note, idx) => {
-			return <Note handleDelete={this.handleNoteDelete} key={idx} note={note} />;
+			return (
+				<Note
+					handleBlur={this.handleBlur}
+					handleEditClick={this.handleEditClick}
+					handleDelete={this.handleNoteDelete}
+					key={idx}
+					note={note}
+				/>
+			);
 		});
 	};
 
@@ -69,7 +96,8 @@ const mapDispatchToProps = dispatch => {
 	return {
 		createNote: noteInfo => dispatch(createNote(noteInfo)),
 		getNotes: bookId => dispatch(getNotes(bookId)),
-		deleteNote: noteId => dispatch(deleteNote(noteId))
+		deleteNote: noteId => dispatch(deleteNote(noteId)),
+		updateNote: (noteId, noteInfo) => dispatch(updateNote(noteId, noteInfo))
 	};
 };
 
