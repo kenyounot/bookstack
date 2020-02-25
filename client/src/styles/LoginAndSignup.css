@@ -1,8 +1,16 @@
 .login-container {
 	display: grid;
+	margin: 5px;
 	height: 500px;
 	width: 100%;
 	grid-template-columns: 50% 50%;
+}
+.login-container form {
+	margin-left: 5px;
+}
+
+.form-group > div {
+	margin-left: 2px;
 }
 
 .left-container {
