@@ -10,9 +10,8 @@
 		"lib": "lib"
 	},
 	"scripts": {
-		"build": "cd client && npm install && npm run build && cd ..",
-		"deploy": "cp -a client/build/.public/",
-		"postinstall": "npm run build && npm run deploy && echo 'Client built'"
+		"build": "cd client && yarn build",
+		"install": "cd client && yarn"
 	},
 	"repository": {
 		"type": "git",

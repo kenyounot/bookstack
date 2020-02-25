@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.83834f78.chunk.css",
+    "main.js": "/static/js/main.5bf021c9.chunk.js",
+    "main.js.map": "/static/js/main.5bf021c9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cea588d5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cea588d5.js.map",
+    "static/js/2.d20906dc.chunk.js": "/static/js/2.d20906dc.chunk.js",
+    "static/js/2.d20906dc.chunk.js.map": "/static/js/2.d20906dc.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.85f76366520e291f276052a64224ceab.js": "/precache-manifest.85f76366520e291f276052a64224ceab.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.83834f78.chunk.css.map": "/static/css/main.83834f78.chunk.css.map",
+    "static/js/2.d20906dc.chunk.js.LICENSE.txt": "/static/js/2.d20906dc.chunk.js.LICENSE.txt",
+    "static/media/FourOhFour.css": "/static/media/404.a169b3a2.jpg",
+    "static/media/BookShow.css": "/static/media/hero-book.4ed46ff5.jpeg",
+    "static/media/LoginAndSignup.css": "/static/media/photo-1532012197267-da84d127e765.8a45fecf.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cea588d5.js",
+    "static/js/2.d20906dc.chunk.js",
+    "static/css/main.83834f78.chunk.css",
+    "static/js/main.5bf021c9.chunk.js"
+  ]
+}
