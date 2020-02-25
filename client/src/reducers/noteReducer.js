@@ -22,7 +22,8 @@ const noteReducer = (state = initialState, action) => {
 		case 'CREATE_NOTE':
 			return {
 				...state,
-				notes: state.notes.concat(action.payload)
+				// notes: state.notes.concat(action.payload),
+				notes: [action.payload, ...state.notes]
 			};
 
 		case 'DELETE_NOTE':

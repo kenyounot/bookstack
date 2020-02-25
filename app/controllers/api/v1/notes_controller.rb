@@ -11,7 +11,7 @@ class Api::V1::NotesController < ApplicationController
 
   def index
     @book = Book.find_by(id: params[:id])
-    @notes = @book.notes
+    @notes = @book.notes.order("updated_at DESC").all
 
     if @notes
       render :index
