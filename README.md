@@ -2,7 +2,7 @@
 
 ### What is BookStack?
 
-BookStack is a web app that let's user's keep track of books by storing them in their
+BookStack is a single page web application that let's user's keep track of books by storing them in their
 collection. User's can search for new books, and add note's along the way.
 
 Visit the site: [https://bookstackapi.herokuapp.com](https://bookstackapi.herokuapp.com)
