@@ -18,9 +18,11 @@ export class Notes extends Component {
 		};
 	}
 
+	// when focus is changed within the div, grab the element that was focus and
+	// also grab the noteid passed in from the component that was focused
 	handleBlur = (evt, id) => {
 		evt.target.removeAttribute('contentEditable');
-
+		// set values that we want to be passed in to be updated
 		let noteId = id;
 		let noteInfo = {
 			[evt.target.id]: evt.target.textContent
@@ -28,8 +30,10 @@ export class Notes extends Component {
 
 		this.props.updateNote(noteId, noteInfo);
 	};
-
+	//on double click of the element set the contentEditable attribute to true
 	handleEditClick = evt => {
+		// check if the target isnt a div and the element doesn't contain the class 'non editable'
+		// so we can set only some elements on the screen to be editable
 		if (evt.target.tagName !== 'DIV' && !evt.target.classList.contains('non-editable')) {
 			evt.target.contentEditable = true;
 			evt.target.focus();
@@ -42,6 +46,7 @@ export class Notes extends Component {
 		});
 	};
 
+	// function to delete the book by passing in the noteId from the element is was called from
 	handleNoteDelete = noteId => {
 		this.props.deleteNote(noteId);
 	};

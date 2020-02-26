@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { createBook } from '../actions/createBook';
 
 export class Books extends Component {
+	// if user clicks button to create a book from the list of books searched
+	// dispatch the book info to the create book action, and then redirect to
+	// their book collection.
 	handleClick = bookInfo => {
 		this.props.createBook(bookInfo).then(this.props.history.push('/collection'));
 	};

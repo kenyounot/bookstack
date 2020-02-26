@@ -13,15 +13,21 @@ import BookShow from './containers/BookShow';
 import FourOhFour from './components/FourOhFour';
 
 class App extends Component {
+
+	// if app mounted then check if user is logged in
+	// if they are logged in the fetch the books associated with
+	// that user
 	componentDidMount() {
 		if (localStorage.getItem('token')) {
 			this.props.fetchBooks();
 		}
 	}
 
+	// if logout button is pushed in nav,
+	// dispatch logout action and redirect to /login
 	handleLogout = () => {
 		this.props.logoutUser();
-		this.props.history.push('login');
+		this.props.history.push('/login');
 	};
 
 	render() {
@@ -42,6 +48,9 @@ class App extends Component {
 	}
 }
 
+
+// this function returns a standard route but first checks if the user is logged in
+// before returning it, if they are not logged in it will redirect to the login screen
 const ProtectedRoute = ({ component: Component, ...rest }) => (
 	<Route
 		{...rest}

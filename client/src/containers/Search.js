@@ -13,6 +13,7 @@ export class Search extends Component {
 		};
 	}
 
+	// on form change, update the state
 	handleOnChange = evt => {
 		this.setState({
 			...this.state,
@@ -20,6 +21,9 @@ export class Search extends Component {
 		});
 	};
 
+
+	// on submit of the form, prevent the default redirect, send a request to the google api
+	// to grab the book entered into the search form and add them to the books state
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
@@ -38,6 +42,8 @@ export class Search extends Component {
 		});
 	};
 
+	// if there are books in the state books state then render the books
+	// to the page
 	renderBooksIfTheyExist = () => {
 		if (this.state.books) {
 			return <Books books={this.state.books} />;

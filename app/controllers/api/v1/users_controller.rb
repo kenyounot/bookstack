@@ -1,6 +1,13 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authenticate_request, :except => [:profile]
 
+  # dont check if the user is logged in before rendering
+  # these actions as set in the application controller
+  skip_before_action :authenticate_request
+
+  # create user with the user_params passed in with request
+  # if the user saves successfully then authenticate the user
+  # which will encode that user to a jwt token to be passed
+  # into the return json.
   def create
     @user = User.new(user_params)
 
@@ -13,6 +20,8 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  # check if the user params(credentials) match an existing user,
+  # if it does then return a jwt token, if not render an error.
   def authenticate
     @command = AuthenticateUser.call(user_params[:email], user_params[:password])
 
@@ -23,12 +32,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: { error: @command.errors }, status: :unauthorized
     end
-  end
-
-  def profile
-    @user = current_user
-
-    render :show
   end
 
   private

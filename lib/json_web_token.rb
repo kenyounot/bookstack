@@ -1,4 +1,7 @@
 class JsonWebToken
+
+  # singleton method that takes in a user.id and encodes that
+  # id into a jwt token, also has decode method that does the opposite
   class << self
     def encode(payload, exp = 24.hours.from_now)
       payload[:exp] = exp.to_i

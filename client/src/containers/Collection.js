@@ -4,12 +4,18 @@ import UserBook from '../components/UserBook';
 import { connect } from 'react-redux';
 
 export class Collection extends Component {
+
+	// taking the books array passed in, mapping over each book and then
+	// calling the UserBook component to render to the page.
 	renderUserBooks = books => {
 		return books.map((book, idx) => {
 			return <UserBook handleClick={this.handleBookClick} key={idx} book={book} />;
 		});
 	};
 
+
+	// if user clicked on the book image, send to the 
+	// book show page. 
 	handleBookClick = bookId => {
 		this.props.history.push(`/books/${bookId}`);
 	};

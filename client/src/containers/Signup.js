@@ -16,12 +16,16 @@ export class Signup extends Component {
 		};
 	}
 
+
+	// on form change update the state object
 	handleOnChange = evt => {
 		this.setState({
 			[evt.target.name]: evt.target.value
 		});
 	};
 
+	// prevent redirection on submit, dispatch the the state to user create action,
+	// redirect to collection component, then clear the form state
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
@@ -35,9 +39,11 @@ export class Signup extends Component {
 		});
 	};
 
+	// if user is logged in and trying to render the login screen redirect
+	// to their book collection
 	componentDidMount = () => {
 		if (localStorage.getItem('token')) {
-			this.props.history.push('/home');
+			this.props.history.push('/collection');
 		}
 	};
 

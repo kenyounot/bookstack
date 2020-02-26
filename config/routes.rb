@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  # set the accepted format of incoming requests to /api/v1
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create]
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # if none of the routes match to an action redirect to the front end, neccessary for production.
   get "*path", to: "application#fallback_index_html", constraints: ->(request) do
                  !request.xhr? && request.format.html?
                end

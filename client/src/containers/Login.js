@@ -15,12 +15,18 @@ export class Login extends Component {
 		};
 	}
 
+	// on form change set the state to the target value, dynamically setting which input
+	// was updated
 	handleOnChange = evt => {
 		this.setState({
 			[evt.target.name]: evt.target.value
 		});
 	};
 
+	// when form is submitted, prevent the default redirect, then authenticate the user
+	// logging in by dispatching the user info in the state. If local storage contains a
+	// token then fetch that users books and redirect to their collection. Finally, clear
+	// the login form state. 
 	handleOnSubmit = evt => {
 		evt.preventDefault();
 
@@ -39,6 +45,8 @@ export class Login extends Component {
 		});
 	};
 
+	// after component mounts check to see if the user is logged in already,'
+	// if they are then send to their book collection page.
 	componentDidMount = () => {
 		if (localStorage.getItem('token')) {
 			this.props.history.push('/collection');

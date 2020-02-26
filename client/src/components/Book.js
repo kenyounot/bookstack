@@ -3,6 +3,10 @@ import '../styles/Book.css';
 import placeholder from '../img/placeholder.jpeg';
 
 const Book = props => {
+
+	// these following function check if the book object contains
+	// their respective book attribute, if they dont then just
+	// pass in generic placeholders
 	const getBookImgOrPlaceHolder = () => {
 		if ('imageLinks' in props.book) {
 			return props.book.imageLinks.thumbnail;
@@ -31,6 +35,16 @@ const Book = props => {
 		}
 	};
 
+	const getBookSummaryOrPlaceHolder = () => {
+		if ('description' in props.book) {
+			return props.book.description;
+		} else {
+			return 'No summary available for this title.';
+		}
+	};
+
+	// function to grab the books information if it exists
+	// or pass in placeholders
 	const getBookInfo = () => {
 		return {
 			title: props.book.title,
@@ -41,13 +55,7 @@ const Book = props => {
 		};
 	};
 
-	const getBookSummaryOrPlaceHolder = () => {
-		if ('description' in props.book) {
-			return props.book.description;
-		} else {
-			return 'No summary available for this title.';
-		}
-	};
+	
 
 	const renderBooks = () => {
 		return (
