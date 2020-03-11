@@ -34,7 +34,10 @@ export class Notes extends Component {
 	handleEditClick = evt => {
 		// check if the target isnt a div and the element doesn't contain the class 'non editable'
 		// so we can set only some elements on the screen to be editable
-		if (evt.target.tagName !== 'DIV' && !evt.target.classList.contains('non-editable')) {
+		if (
+			evt.target.tagName !== 'DIV' &&
+			!evt.target.classList.contains('non-editable')
+		) {
 			evt.target.contentEditable = true;
 			evt.target.focus();
 		}
@@ -54,12 +57,16 @@ export class Notes extends Component {
 	handleSubmit = evt => {
 		evt.preventDefault();
 
-		this.props.createNote(this.state);
+		if (this.state.content !== '') {
+			this.props.createNote(this.state);
 
-		this.setState({
-			...this.state,
-			content: ''
-		});
+			this.setState({
+				...this.state,
+				content: ''
+			});
+		} else {
+			alert('Note must not be blank!');
+		}
 	};
 
 	renderNotes = () => {
@@ -102,7 +109,8 @@ const mapDispatchToProps = dispatch => {
 		createNote: noteInfo => dispatch(createNote(noteInfo)),
 		getNotes: bookId => dispatch(getNotes(bookId)),
 		deleteNote: noteId => dispatch(deleteNote(noteId)),
-		updateNote: (noteId, noteInfo) => dispatch(updateNote(noteId, noteInfo))
+		updateNote: (noteId, noteInfo) =>
+			dispatch(updateNote(noteId, noteInfo))
 	};
 };
 
